@@ -1,0 +1,2 @@
+in python you can read any kind of data
+in python you can create lists
