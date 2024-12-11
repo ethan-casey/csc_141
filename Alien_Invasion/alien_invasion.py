@@ -10,6 +10,7 @@ from button import Button
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
+from pygame import mixer
 
 class AlienInvasion:
 #overall class to manage assets and behavior
@@ -22,7 +23,7 @@ class AlienInvasion:
         self.settings = Settings()
 
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
-        pygame.display.set_caption("Alien Invasion")
+        pygame.display.set_caption("SuperKaul")
 
         #create instance to store game statisitics & create scoreboard
         self.stats = GameStats(self)
@@ -42,6 +43,9 @@ class AlienInvasion:
 
         # Make play button
         self.play_button = Button(self, "Play")
+
+        mixer.music.load('images/Superhero.wav')
+        mixer.music.play(-1)
 
     def run_game(self):
         #start main loop
@@ -152,7 +156,7 @@ class AlienInvasion:
 
     def _update_screen(self):
         #update images on screen and flip to new screen
-        self.screen.fill(self.settings.bg_color)
+        self.screen.blit(self.settings.bg_image, (0, 0))
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()  
         self.ship.blitme()

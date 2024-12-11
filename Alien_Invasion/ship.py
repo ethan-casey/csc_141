@@ -10,7 +10,7 @@ class Ship(Sprite):
         self.settings = ai_game.settings
 
         #load ship image and get rect
-        self.image = pygame.image.load('images/ship.bmp')
+        self.image = pygame.image.load('images/Kaul100x100.bmp')
         self.rect = self.image.get_rect()
 
         #start each new ship at bottom of screen
